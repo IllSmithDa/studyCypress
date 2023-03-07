@@ -12,12 +12,12 @@
      to check the url using implicit assertions using 'should' and cy.url()
      which returns your current url
 
-     e.g
-     cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-     cy.url().should('include', 'orangehrmlive.com')
-
-      a. should in this exmaple uses 'include' and check to see if the second
-      argument can be found in the url that is returned
+    e.g
+    cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+    cy.url().should('include', 'orangehrmlive.com')
+    
+     a. should in this exmaple uses 'include' and check to see if the second
+     argument can be found in the url that is returned
 
   2. 'eq' in assertion langauge is equivalent to '=' or 'equal'
 
@@ -29,8 +29,8 @@
   3. 'contian' allows us to specify text to see if text is part of the url.
      WOrks similarly to 'include'
 
-     e.g
-     cy.url().should('contain', 'orangehrmlive');
+    e.g
+    cy.url().should('contain', 'orangehrmlive');
 
   
   4. Good practice to is to chain the should methods together so we don't have
@@ -38,12 +38,12 @@
      every aspect but lookout when you call a function multiple times that return
      same value using 'and' keyword
 
-     e.g
-     cy.url().should('include', 'orangehrmlive.com')
-      .and('contain', 'orangehrmlive')
-      .and('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-      
-      a. 'and' is the keyword that allows us to chain multiple should together
+    e.g
+    cy.url().should('include', 'orangehrmlive.com')
+     .and('contain', 'orangehrmlive')
+     .and('eq', 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+     
+     a. 'and' is the keyword that allows us to chain multiple should together
 
   5. cy.title() will return title of your application
 
@@ -72,12 +72,12 @@
 
   1. You can check the value of an input using 'have.value'
 
-  e.g
-  cy.get('#email').type('jon@doe.com')
-  cy.get('#email').should('have.value', 'jon@doe.com')
+    e.g
+    cy.get('#email').type('jon@doe.com')
+    cy.get('#email').should('have.value', 'jon@doe.com')
 
-    a. remember type will type into the input the value you added as the argument and the 'have.value' check to see if the value input matches the input that was typed
-  
+      a. remember type will type into the input the value you added as the argument and the 'have.value' check to see if the value input matches the input that was typed
+
 # Negative Assertions using 'not'
 
   1. Negative assertions are also part of the assertion library using 'not' in
