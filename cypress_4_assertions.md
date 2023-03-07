@@ -130,11 +130,8 @@
   1. TDD style is similar to BDD style but syntax is obviously going to be
      different 
 
-     e.g 
-     BDD
-     expect(elementText).to.equal(expectedText)
-     expect(elementText).to.not.equal('Test')
+    e.g
+    assert.equal(elementText, expectedText)
+    assert.notEqual(elementText, 'Test')
 
-     TDD
-     assert.equal(elementText, expectedText)
-     assert.notEqual(elementText, 'Test')
+      a. Doing the same thing as the previous example but using TDD syntax
