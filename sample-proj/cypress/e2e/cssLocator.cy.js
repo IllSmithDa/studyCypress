@@ -1,5 +1,16 @@
 
 describe('CSSLocators', () => {
+  it("implicit assertions", () => {
+    cy.visit("https://theologianspen.com");
+    cy.url().should('contain', 'theologianspen')
+      .and('contain', "theologianspen.com")
+      .and('not.contain', 'ketchup')
+    cy.title().should('eq', "Theologian's Pen")
+    cy.get('#main-logo').should('exist')
+      .and('be.visible');
+    cy.get('.css-4veo8f > .chakra-image').should('exist')
+      .and('be.visible');
+  })
   it('csslocators', () => {
     cy.visit("https://theologianspen.com");
     cy.get("button#contact-us").click();
@@ -22,10 +33,10 @@ describe('CSSLocators', () => {
     cy.get('input#password').type(Cypress.env("password"))
     cy.get('button[type="submit"]').click();
     cy.get('button[aria-haspopup="menu"]').click();
-    cy.get('a#menu-list-25-menuitem-16').click();
+    cy.get('[data-index="3"]').click();
     cy.get('button[aria-haspopup="menu"]').click();
-    cy.get('button#menu-list-13-menuitem-5').click();
+    cy.get('[data-index="4"]').click();
     cy.get('button[aria-haspopup="menu"]').click();
-    cy.get('button#menu-list-13-menuitem-11').click();
+    cy.get('[data-index="10"]').click();
   })
 })
