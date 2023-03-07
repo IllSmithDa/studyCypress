@@ -33,7 +33,7 @@
   6. You can also specify which browser you want to run test via command prompt
      by adding it to end of commmand 
 
-     e.g
-     npx run --spec sample-proj\cypress\e2e\test.cy.js firefox --headed
+    e.g
+    npx run --spec sample-proj\cypress\e2e\test.cy.js firefox --headed
 
       a. Not only runs on firefox but also opens up browser

@@ -18,11 +18,11 @@
   2. You can use combinations of css classes and ids to find your element. You
      can also include tag as an extra optional specifier
 
-     e.g
-     tag and id (tag is optional)
-     tag and class (tag is optional)
-     tag and attribute (tag is optional)
-     tag and class and attribute (tag is optional);
+    e.g
+    tag and id (tag is optional)
+    tag and class (tag is optional)
+    tag and attribute (tag is optional)
+    tag and class and attribute (tag is optional);
 
   3. specify using '#' for id '.' for class '[some_attribute = some_value]' and name of
      tag in the front of the query
@@ -123,7 +123,6 @@
      your node_modules 
      https://www.freecodecamp.org/news/gitignore-file-how-to-ignore-files-and-folders-in-git/
 
-    e.g
 
 
   
