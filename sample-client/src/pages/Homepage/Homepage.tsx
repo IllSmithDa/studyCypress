@@ -4,6 +4,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import { Product } from '../../interfaces';
 import RadioGroups, { createRadioButtons } from '../../components/RadioGroups/RadioGroups';
 import CheckBoxes from '../../components/CheckBoxes/CheckBoxes';
+import DropDown from '../../components/DropDown/DropDown';
 
 export default function Homepage() {
   const [productList, setProductList]= useState<Product[]>([]);
@@ -28,6 +29,7 @@ export default function Homepage() {
       <RadioGroups radioVals={createRadioButtons(rgbColors)} label="Favorite Color" />
       <CheckBoxes />
       {/* <ProductList products={productList} /> */}
+      <DropDown />
       <Footer />
     </main>
   )

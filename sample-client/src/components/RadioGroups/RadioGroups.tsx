@@ -41,7 +41,7 @@ export default function RadioGroups(
       style={{ padding: "10px" }}
     >
       <FormLabel
-        style={{ color: "#F1F1F1" }}
+        style={{ fontWeight: "700", fontSize: "1.3em" }}
         id="demo-radio-buttons-group-label"
       >
         {label}

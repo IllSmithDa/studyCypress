@@ -15,8 +15,10 @@ export default function CheckBoxes() {
       style={{ padding: "10px" }}
     >
       <FormLabel
-        style={{ color: "#F1F1F1" }}
-      >Take Pills Here</FormLabel>
+        style={{ fontWeight: "700", fontSize: "1.3em" }}
+      >
+        Pills CheckBoxes
+        </FormLabel>
       <FormControlLabel 
         control={
         <Checkbox
