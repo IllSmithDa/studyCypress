@@ -9,6 +9,8 @@ import AlertBox from '../../components/AlertBox/AlertBox';
 import AnchorTag from '../../components/AnchorTags/AnchorTag';
 import IFrame from '../../components/IFrame/IFrame';
 import ProductTable from '../../components/ProductTable/ProductTable';
+import MouseOverPopover from '../../components/Popover/MouseOverPopover';
+import { Box } from '@mui/material';
 
 export default function Homepage() {
   const [productList, setProductList]= useState<Product[]>([]);
@@ -27,7 +29,7 @@ export default function Homepage() {
   }, [])
 
   return (
-    <main style={{ minHeight: "1000px" }}>
+    <Box component="main" style={{ minHeight: "1000px" }}>
       <RadioGroups radioVals={createRadioButtons(days)} label="Favorite Day" />
       <RadioGroups radioVals={createRadioButtons(rgbColors)} label="Favorite Color" />
       <CheckBoxes />
@@ -37,6 +39,7 @@ export default function Homepage() {
       <AnchorTag />
       <IFrame />
       <ProductTable products={productList} columns={columns}/>
-    </main>
+      <MouseOverPopover />
+    </Box>
   )
 }
