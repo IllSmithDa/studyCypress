@@ -135,3 +135,57 @@
     assert.notEqual(elementText, 'Test')
 
       a. Doing the same thing as the previous example but using TDD syntax
+
+# BeforeEach 
+
+  1. We can trigger certain actions to occur before we get to our assertions
+     using beforeEach()
+
+    e.g
+    beforeEach("visit page", () => {
+      cy.visit("http://localhost:5173/");
+    });
+
+      a. This will ensure that before every new set of tests in 'it()', we will make sure we visit the apge first
+
+# Child Elements
+
+  1. We can use the ">" symbol followed by tagname to get child tag
+
+    e.g
+    cy.get("ul#my-list>li")
+
+      a. This retrieves all the child 'li' under the 'ul' with 'id' with 'my-list'
+
+      b. this will retreive all 'li' not just one if there is more than one 
+
+    e.g
+    cy.get("table[aria-label='product-table']>tbody>tr").should('have.length', '30')
+
+      a. retrieves the tr which should have number of rows which is 30 in this case
+
+  2. We can use a semi-colon to indicate a particular child as demonstrated below
+
+    e.g
+    cy.get("ul#my-list>li:first-child")
+
+      a. retrieves the first 'li' instead of all of them as in the previous example
+
+    e.g
+    cy.get("ul#my-list>li:nth-child(5)")
+
+      a. retrieving the 5th li
+
+  3. Using .each(), we can iterate through each row and use it to test
+
+    e.g
+    cy.get("table[aria-label='product-table']>tbody>tr")
+      .each(($row, index, $rows) => {
+        // wrapping each row and getting each 'td' and getting one column using 'td'
+        cy.wrap($row).within(() => {
+          cy.get("td").each(($col, index, $cols) => {
+            cy.log($col.text())
+          })
+        })  
+      })
+    })

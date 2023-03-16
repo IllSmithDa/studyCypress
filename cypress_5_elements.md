@@ -80,3 +80,61 @@
     cy.wait(3000);
 
       a. waits 3000 miliseconds or 3 seconds 
+
+# Authenticated alert
+
+  1. Cypress has built in method for testing cypress alert box authentication
+
+    e.g
+    cy.visit("some-url.com", {auth: { username: 'w/e', password: 'w/e '}});
+
+# Handling Anchor tags with target="_blank"
+
+  1. You will need to remove the target="_blank" property so that you can test
+     the new tab page
+
+    e.g
+    cy.visit("some-url.com");
+    cy.get("#some-id-a-tag").invoke("removeAttr", "target").click();
+
+      a. invoke() wil invoke some action that you define as its first argument. removeAttr will remove one attribute which in the case is target. This will cause the click() to work as normal and allow user to test the interactiosn afterwards without breaking cypress. 
+
+      b. cy.url().should('include', 'new-url.com') can be used to test the new url to make sure you have successfully are now in the desired url
+
+  2. Second method is to obtain the href attribute which contains the url and
+     use cy.visit() to directly visit the url 
+
+    e.g
+    cy.visit("Some-url.com")
+    cy.get("#some-id-a-tag").then((ele) => {
+      const newUrl = ele.prop('href')
+      cy.visit(newUrl);
+    })
+
+      a. Get the 'href' value from the anchor tag and use cy.visit() to directly visit the link
+
+# Iframe Retrieval
+
+  1. Retrieving elements of another document or iframe requires some unique
+     syntax
+  
+  2. retrieve the iframe itself first and then the document itself 
+
+    e.g
+    cy.get("#inlineFrameExample")
+      .its('0.contentDocument.body')
+      .should('be.visible')
+    
+# Iterating pagination 
+
+  1. You can test pagination by using a for loop to continually test to see if
+     an element exists
+
+    e.g
+    let totalPages = 5;
+    for (let p=1; p < totalPages; p++) {
+      if (totalPage> 1) {
+        cy.get("nav[aria-label='pagination navigation']>ul>li:nth-child("+p+")").click();
+        // check something else on each new page
+      }
+    }
