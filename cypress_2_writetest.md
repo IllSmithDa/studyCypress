@@ -37,3 +37,4 @@
     npx run --spec sample-proj\cypress\e2e\test.cy.js firefox --headed
 
       a. Not only runs on firefox but also opens up browser
+

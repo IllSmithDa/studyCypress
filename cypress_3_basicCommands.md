@@ -124,5 +124,29 @@
      https://www.freecodecamp.org/news/gitignore-file-how-to-ignore-files-and-folders-in-git/
 
 
+# Browser Navigation
 
+  1. we can use navigation commands to quickly go forward, or back from the
+     current web page using the go() method
+
+    e.g
+    cy.visit("some-site.com/home");
+    cy.get("#profile").click();
+    cy.go("back")
+
+      a. Starts at homepage, goes to the profile page via button and then 'back' to the previous page which in this case is the homepage
+
+    cy.go('foward')
+
+      b. You can then go forward to the previous page again which in this case is the profile page
+
+    cy.go(-1)
+
+      c. -1 or 1 can also be used to indicate 'back' or 'forward' respectively
   
+  2. We can also reload the current page using the reload() method 
+
+    e.g
+    cy.reload();
+
+      a. reloads the current page

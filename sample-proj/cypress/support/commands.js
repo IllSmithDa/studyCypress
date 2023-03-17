@@ -28,3 +28,21 @@
 // <reference types="Cypress" />
 // <reference types="cypress-xpath" />
 require('@cypress/xpath');
+
+Cypress.Commands.add('clickLink', (p) => {
+  cy.get("a").contains(p).click();
+})
+
+Cypress.Commands.add("clickButton", (text) => {
+  cy.get("div").contains(text).click();
+})
+
+Cypress.Commands.add("visitTheologians", () => {
+  cy.visit("https://theologianspen.com/")
+})
+Cypress.Commands.add('loginTheologianAdmin', () => {
+  cy.visit("https://theologianspen.com/login");
+  cy.get('#email').type(Cypress.env("email"))
+  cy.get('#password').type(Cypress.env("password"))
+  cy.get('form > .chakra-button').click()
+})

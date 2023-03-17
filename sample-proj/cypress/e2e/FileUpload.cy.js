@@ -1,11 +1,11 @@
 import "cypress-file-upload";
 
 describe("Assertions Demo", () => {
-  beforeEach("assumes user is logged in and is an admin", () => {
-    cy.visit("https://theologianspen.com/login");
-    cy.get('#email').type(Cypress.env("email"))
-    cy.get('#password').type(Cypress.env("password"))
-    cy.get('form > .chakra-button').click()
+  before("assumes user is logged in and is an admin", () => {
+      cy.visit("https://theologianspen.com/login");
+      cy.get('#email').type(Cypress.env("email"))
+      cy.get('#password').type(Cypress.env("password"))
+      cy.get('form > .chakra-button').click()
   });
 
   it("test upload functionality", () => {

@@ -7,10 +7,8 @@ describe("testing theologians pen using hooks", () => {
     cy.log("test starting up...")
   })
   beforeEach("login theologians pen app", () => {
-    cy.visit("https://theologianspen.com/login");
-    cy.get('#email').type(Cypress.env("email"))
-    cy.get('#password').type(Cypress.env("password"))
-    cy.get('form>.chakra-button').click()
+    // custom command which handles the entire login process that we can just call
+    cy.loginTheologianAdmin();
   })
 
   // beforeEach("go to upload page", () => {
@@ -43,7 +41,8 @@ describe("testing theologians pen using hooks", () => {
   // })
 
   afterEach("logout the app if admin", () => {
-    cy.get("div[data-testid='logged-nav-home']>a").click();
+    // custom command clickLink();
+    cy.clickLink("Home")
     cy.get('button[aria-haspopup="menu"]').click();
     cy.get('[data-index="10"]').click();
   })
