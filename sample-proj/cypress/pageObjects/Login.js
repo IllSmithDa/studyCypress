@@ -26,4 +26,5 @@ export default class Login {
   verifyLogin = () => {
     cy.get(this.homeLink).should("have.text", "Home");
   }
+  
 }

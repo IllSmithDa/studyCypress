@@ -83,3 +83,15 @@
 
       d. You can write many different tests such as shoud("exist") or should("have.text") or contains()
 
+  3. Alternatively, you can also use the await method rather than using .then()
+
+    e.g
+    it("tries using await method", async () => {
+      const data = await cy.fixture("login-data");
+      cy.log(data.email);
+      expect(data.email).to.eq("hello@cypress.io");
+    })
+
+      a. retrieves the data using await method rather than using .then();
+
+      b. code is cleaner than using .then()
